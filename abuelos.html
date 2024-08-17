@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día de los Abueles</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-image: url('./abuelos.webp');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .content {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>¡Feliz Día del Abuele!</h1>
+        <p id="date"></p>
+    </div>
+
+    <script>
+        function getNextSunday() {
+            const today = new Date();
+            const nextSunday = new Date();
+            nextSunday.setDate(today.getDate() + (7 - today.getDay()) % 7);
+            
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            return nextSunday.toLocaleDateString('es-ES', options);
+        }
+
+        document.getElementById('date').innerText = 'Próximo domingo: ' + getNextSunday();
+    </script>
+</body>
+</html>
+
